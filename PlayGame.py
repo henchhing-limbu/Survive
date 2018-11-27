@@ -1,10 +1,12 @@
+from CreateGame import *
+from State import *
 # This method simply introduces the user with game intro
 def intro():
   print("*****Welcome to Survive!*****\n\nThis is a choice based survival game where you need to make right choices to survive in this unknown island\n")
   userInput = int(input("To start game, press 1\nTo Exit game, press 0\n"))
   if (userInput):
     print("Starting the game\n")
-    startGame()
+    startGame(state0)
   else:
     print("Exiting the game\n")
     quit()
@@ -34,3 +36,5 @@ def startGame(startState):
         else:
           print("Please enter a valid input\n")
       state = transition[alphabets[userChoice]]
+  
+intro()
