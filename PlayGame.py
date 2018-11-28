@@ -16,7 +16,7 @@ def introduction():
     quit()
   else:
     print("Please enter 1 or 0")
-    introudction()
+    introduction()
 
 
 # TODO: Expecting graph of states in here
@@ -66,7 +66,7 @@ def playStages(startStates):
 # returns True if the user wants to restart game else False
 def lostStage():
   print("\n*****  You lost the game.   *****\n"
-        "***** Bettur Luck Next Time *****\n")
+        "***** Better Luck Next Time *****\n")
   userInput = int(input("Do you want to restart the game?\nPress 1 to restart the game\nPress 0 to return to main menu"))
   return True if userInput else False
   
