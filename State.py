@@ -53,9 +53,9 @@ class State:
   # displys the current situation to the player, and gives him opportunity to choose
   def display(self):
     print("%s" %self.getScene())
-    print("Now you have the following choices to make. Choose wisely")
     if self.isDeadState() or self.isFinalState() or 'E' in self.getTransitions():
       return
+    print("Now you have the following choices to make. Choose wisely")
     optionNum = 'A'
     for key in self.getTransitions().keys():
       print("%s. %s"  %(optionNum, key))
