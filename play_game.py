@@ -3,6 +3,7 @@ from State import *
 from crash_site import *
 from intro import *
 from Jungle import *
+from collections import deque
 
 startStates = [introState0, crashState0]
 # This method simply introduces the user with game intro
@@ -21,7 +22,7 @@ def introduction():
 
 
 # TODO: Expecting graph of states in here
-def playStage(startState, playerSkills, otherSkills):
+def playStage(startState, playerSkills, otherSkills, decisionQueue):
   state = startState
   # This is where the flow of game will occur
   while (state):
@@ -58,6 +59,7 @@ def playStage(startState, playerSkills, otherSkills):
           else:
             print("Please enter a valid input\n")
         nextState = transition[alphabets[userChoice]]
+        decisionQueue.append(alphabets[userChoice])
         if (nextState.getSkillNeeded() == '') or (nextState.getSkillNeeded() in otherSkills):
           print(state.getSkillNeeded())
           state = transition[alphabets[userChoice]]
@@ -67,13 +69,13 @@ def playStage(startState, playerSkills, otherSkills):
   
 # plays each stages
 # @param1 list of start states of each stage
-def playStages(startStates):
+def playStages(startStates, decisionQueue):
   playerSkills = Skills()
   otherSkills = set()
   stage = 1
   for startState in startStates:
     print("\n***** Stage %d *****" %stage)
-    if playStage(startState, playerSkills, otherSkills):
+    if playStage(startState, playerSkills, otherSkills, decisionQueue):
       print("\nCongratulations! You passed stage %d" %stage)
     else:
       if lostStage():
@@ -103,8 +105,10 @@ def lostStage():
   
 def startGame():
   introduction()
-  if playStages(startStates):
-    print("\nCongratulations! You survived. Do you want to play the game again?Press 1 to play again or 0 to exit")
+  decisionQueue = deque()
+  returnVal = playStages(startStates, decisionQueue)
+  if returnVal:
+    print("\nCongratulations! You survived. Do you want to play the game again?\nPress 1 to play again\n0 to exit")
     while (True):
       userInput = int(input("Press 1 to play again or 0 to exit"))
       if userInput == 1:
@@ -113,5 +117,9 @@ def startGame():
         quit()
       else:
         print("Please enter a valid input!")
+  else:
+    userInput = int(input("\nGame over.\nDo you want to play the game again?\nPress 1 to play again\n0 to exit"))
+    print(len(returnVal))
+
 
 startGame()

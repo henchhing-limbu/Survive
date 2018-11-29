@@ -123,6 +123,15 @@ def JungeScene(player):
     while True:
         option = curr_state.getOptions()
         transit = curr_state.getTransitions()
+        if curr_state == JungleS5:
+            print("The last statge entered here JungleS5")
+            if player.get_communication():
+                curr_state =  makeaChoice(option,transit,curr_state)
+            else:
+                curr_state = JungleS7
+
+        print("Current state is ", curr_state.deadState)
+        print("Current state is ", curr_state.finalState)
         if curr_state.finalState:
             print("This is final state")
             print(curr_state.getScene())
@@ -148,12 +157,6 @@ def JungeScene(player):
                 print('Game Over')
                 quit()
 
-        if curr_state == JungleS5:
-            print("The last statge entered here JungleS5")
-            if player.get_communication():
-                curr_state =  makeaChoice(option,transit,curr_state)
-            else:
-                curr_state = JungleS7
 
         if transit:
             print("has transitions")
