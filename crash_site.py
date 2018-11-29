@@ -18,35 +18,37 @@ crashState7.setFinalState(True)
 
 
 
-crashState0.setScene("You wake up on a deserted beach shore along with the remains of the plane crash. You quickly discover you’re the only survivor. You think to yourself, how will you survive?")
-crashState1.setScene("You go to explore the right side of the island and you discover that despite you are the only plane crash survivor on a deserted island, you are not alone. "
-                "In the distance, you notice that there is a dingy looking man nearby what looks to be his shelter. He doesn’t see you as you cautiously move in his direction.")
+crashState0.setScene("\n\nYou wake up on a deserted beach shore along with the remains of the plane crash. You quickly discover that you’re the only survivor. \nYou think to yourself, how will you survive?")
 
-crashState2.setScene("You now go to the left side of the island to explore. Despite your growing hunger, you find a large supply of wood. ")
+crashState1.setScene("\n\nYou go to explore the right side of the island and you discover that despite being the only plane crash survivor on a deserted island, \nyou are not alone. "
+                "In the distance, you notice that there is a dingy looking man nearby what looks to be his shelter. \nHe doesn’t see you as you cautiously move in his direction.")
 
-crashState3.setScene("While the island man leaves his home, you enter in and look around. You see mostly junk but quickly land your eyes on what appears to be a makeshif fishing rod. "
-                "You take it as you quickly escape the left side of the island before the island man comes back.\n[Fishing unlocked: You can now go fishing in suitable location.]")
+crashState2.setScene("\n\nYou now go to the left side of the island to explore. Despite your growing hunger, you find a large supply of wood. ")
+
+crashState3.setScene("\n\nWhile the island man leaves his home, you enter in and look around. You see mostly junk but quickly land your eyes on what appears to be a \n"
+                     "makeshift fishing rod. You take it and quickly escape the left side of the island before the island man comes back.\n[Fishing unlocked: You "
+                     "can now go fishing in a suitable location.]")
 # TODO: Fishing Skill needs to be added to the player skills array
 
-crashState4.setScene("The strange island man hears your steps as you move closer to him and turns around. To your surprise he rapidly turns around in a dramatic fashion and runs to you. "
-                "He grabs a hold of you before you can do anything and says ”Boy, am I glad to see you”. The both of you explain how you got stuck on the island and soon become "
-                "friends. The island man shares his shelter with you and now you have a new home and a friend. [Communication Skill Unlocked: You can now persaude people to benefit you]")
+crashState4.setScene("\n\nThe strange island man hears your steps as you move closer to him and turns around. To your surprise, he rapidly turns around in a dramatic fashion and runs to you. \n"
+                "He grabs a hold of you before you can do anything and says ”Boy, am I glad to see you”. The both of you explain how you got stuck on the island and soon become \n"
+                "friends. The island man shares his shelter with you and now you have a new home and a friend. \n[Communication Skill Unlocked: You can now persuade people to benefit you]\n")
 # TODO: Communication skill needs to be added to the player skills array
 
-crashState8.setScene("You begin your journey to find berries and lucky for you are successful in your search.While you're gathering your berries you hear the bush in front of you rattle "
-                    "louder and louder.Suddenly a wolf comes out of the bush.")
+crashState8.setScene("\n\nYou begin your journey to find berries and lucky for you are successful in your search. While you're gathering your berries you hear the bush in front of you rattle \n"
+                    "louder and louder. Suddenly a wolf comes out of the bush.\n")
                      
-crashState9.setScene("You new friend teaches you to hunt and you become good, but…not that good. You don’t realize this and go off hunting on your own. Your naivety causes you to get "
-                     "killed by your lunch.")
+crashState9.setScene("\n\nYou new friend teaches you to hunt and you become good, but…not that good. You don’t realize this and go off hunting on your own. \nYour naivety causes you to get "
+                     "killed by your lunch.\n")
 
-crashState10.setScene("Trying to save yourself, you run away as fast as you can from the wolf. However, you are no match for the beast. You get eaten by the beast.") 
+crashState10.setScene("\nTrying to save yourself, you run away from the wolf as fast as you can. However, you are no match for the beast. You get eaten by the beast.\n")
 # TODO: hunting skills gained
 
-crashState5.setScene("You put up a brave fight against the wolf. Despite getting injured, you kill the wolf.You return to the place where you made fire") 
+crashState5.setScene("\nYou put up a brave fight against the wolf. Despite getting injured, you kill the wolf. You return to the place where you made fire\n")
                      
-crashState6.setScene("You take the wood you just found and build a fire. Now that you’re warm, decide to find food.")
+crashState6.setScene("\nYou take the wood you just found and build a fire. Now that you’re warm, you decide to find food.\n")
 
-crashState7.setScene("You are on your way to go fishing on the beach.")
+crashState7.setScene("\nYou are on your way to go fishing on the beach.\n")
 
 crashState0.makeTransition("Explore the left side of the island", crashState1)
 crashState0.makeTransition("Explore the right side of the island", crashState2)

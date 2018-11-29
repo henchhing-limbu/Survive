@@ -4,7 +4,7 @@
 from State import *
 
 def createGame():
-  print("Welcome!\nThis is where you will write the story of your surviva game");
+  print("Welcome!\nThis is where you will write the story of your survival game");
   gameName = input("What is the name of your game?")
   numStates = int(input("How many scenarios do you want in your game?"))
   stateNum = 1

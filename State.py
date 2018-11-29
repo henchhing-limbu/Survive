@@ -55,6 +55,7 @@ class State:
     print("%s" %self.getScene())
     if self.isDeadState() or self.isFinalState() or 'E' in self.getTransitions():
       return
+    print("*********************************************************")
     print("Now you have the following choices to make. Choose wisely")
     optionNum = 'A'
     for key in self.getTransitions().keys():
