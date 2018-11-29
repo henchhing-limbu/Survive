@@ -8,7 +8,7 @@ from collections import deque
 startStates = [introState0, crashState0]
 # This method simply introduces the user with game intro
 def introduction():
-  print("*****Welcome to Survive!*****\n\nThis is a choice based survival game where you need to make right choices to survive in this unknown island\n")
+  print("*****Welcome to Survive!*****\n\nThis is a choice based survival game where you need to make right choices to survive on this unknown island\n\nRules:\n\nYou are stuck on a deserted island and must make your way out. Choose an, option A or B, to find your way off the island. Choose options wisely, as they determine the skills that you are able to learn. Be careful, the wrong options can land you in some serious trouble!")
   userInput = int(input("To start game, press 1\nTo Exit game, press 0\n"))
   if (userInput == 1):
     print("Starting the game\n")
