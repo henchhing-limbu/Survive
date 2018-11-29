@@ -11,10 +11,12 @@ crashState7 = State()
 crashState8 = State()
 crashState9 = State()
 crashState10 = State()
+crashState11 = State()
 
 crashState9.setDeadState(True)
 crashState10.setDeadState(True)
 crashState7.setFinalState(True)
+crashState11.setDeadState(True)
 
 
 
@@ -39,14 +41,15 @@ crashState8.setScene("You begin your journey to find berries and lucky for you a
 crashState9.setScene("You new friend teaches you to hunt and you become good, but…not that good. You don’t realize this and go off hunting on your own. Your naivety causes you to get "
                      "killed by your lunch.")
 
-crashState10.setScene("Trying to save yourself, you run away as fast as you can from the wolf. However, you are no match for the beast. You get eaten by the beast.") 
-# TODO: hunting skills gained
+crashState10.setScene("Trying to save yourself, you run away as fast as you can from the wolf. However, you are no match for the beast. You get eaten by the beast.")
 
-crashState5.setScene("You put up a brave fight against the wolf. Despite getting injured, you kill the wolf.You return to the place where you made fire") 
+crashState11.setScene("The berries were poisonous. You die!")
+
+crashState5.setScene("You put up a brave fight against the wolf. Despite getting injured, you kill the wolf.You return to the place where you made fire. On your way back you find a fishing rod") 
                      
 crashState6.setScene("You take the wood you just found and build a fire. Now that you’re warm, decide to find food.")
 
-crashState7.setScene("You are on your way to go fishing on the beach.")
+crashState7.setScene("You are on your way to go fishing on the beach. After that you decide to go to the jungle.")
 
 crashState0.makeTransition("Explore the left side of the island", crashState1)
 crashState0.makeTransition("Explore the right side of the island", crashState2)
@@ -55,6 +58,7 @@ crashState1.makeTransition("Secretly enter his home", crashState3)
 crashState1.makeTransition("Make him friend", crashState4)
 
 crashState2.makeTransition("Build a Fire", crashState6)
+crashState2.makeTransition("You find some unknown berries. Eat it", crashState10)
 
 crashState3.makeTransition('E', crashState2)
 
@@ -63,12 +67,14 @@ crashState4.makeTransition("Explore the rest of island", crashState2)
 
 crashState6.makeTransition("Go Fishing", crashState7)
 crashState6.makeTransition("Go pick some berries", crashState8)
+crashState7.setSkillNeeded("Fishing")
 
 crashState8.makeTransition("Run away", crashState10)
 crashState8.makeTransition("Pick up the wood near you, and fight the wolf", crashState5)
 
-                    
+crashState5.makeTransition('E', crashState2)
 
+                
 
 
 

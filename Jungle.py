@@ -57,7 +57,7 @@ class State2:
       self.optionToAlphabet[optionNum] = key
 
 class Skills():
-    def __init__(self,com = True, fish = False, nav= False):
+    def __init__(self,com = False, fish = False, nav= False):
         self.communication = com
         self.fishing = fish
         self.navigation = nav
@@ -118,11 +118,25 @@ def JungeScene(player):
    
     curr_state = JungleS0
 
-    while not curr_state.isFinalState():
+    JungleS7.setDeadState(True)
+    # while not curr_state.isFinalState():
+    while True:
         option = curr_state.getOptions()
         transit = curr_state.getTransitions()
-   
-        if curr_state.isDeadState():
+        if curr_state.finalState:
+            print("This is final state")
+            print(curr_state.getScene())
+            userchoice = input('Would you like to start over at the Island? A - Yes , B - No ')
+            print()
+            userchoice = str(userchoice.upper())
+            if userchoice == 'A':
+                curr_state = JungleS0
+            else: 
+                print('Game Over')
+                quit()
+
+        if curr_state.deadState:
+            print("This is dead state")
             print(curr_state.getScene())
             print()
             userchoice = input('Would you like to start over at the Island? A - Yes , B - No ')
@@ -132,19 +146,23 @@ def JungeScene(player):
                 curr_state = JungleS0
             else: 
                 print('Game Over')
-                exit(1)
+                quit()
 
         if curr_state == JungleS5:
+            print("The last statge entered here JungleS5")
             if player.get_communication():
                 curr_state =  makeaChoice(option,transit,curr_state)
             else:
                 curr_state = JungleS7
 
         if transit:
+            print("has transitions")
             print(curr_state.getScene())
             print()
 
             if len(option) > 1:
+                print("Dead state value ", curr_state.deadState)
+                print("Entered this useless place")
                 curr_state = makeaChoice(option,transit,curr_state)
             
             else:
@@ -152,11 +170,12 @@ def JungeScene(player):
                 print()
                 for options, states in transit.items():
                     if options == 'E':
+                        print("This is epsilon transition")
                         curr_state = states
                 
         else:
+            print("There is no transition")
             for options, states in transit.items():
                  if options == 'E':
                     curr_state = states
     print(curr_state.getScene())
-

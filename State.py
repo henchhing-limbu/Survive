@@ -1,6 +1,10 @@
 class State:
   # constructor
-  def __init__(self, scene=None, optns = None, final=False, dead=False):
+  def __init__(self, scene=None, optns = None, final=False, dead=False, skillNeeded=None):
+    if skillNeeded:
+      self.skillNeeded = skillNeeded
+    else:
+      self.skillNeeded = ''
     if scene:
       self.scene = scene          # this explains the situation
     else:
@@ -13,6 +17,12 @@ class State:
       self.transitions = {}
     self.optionToAlphabet = {}    # maps options to alphabets
 
+  def setSkillNeeded(self, skill):
+    self.skillNeeded = skill
+
+  def getSkillNeeded(self):
+    return self.skillNeeded
+    
   # sets scene value
   def setScene(self, scene):
     self.scene = scene
