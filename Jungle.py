@@ -124,16 +124,12 @@ def JungeScene(player):
         option = curr_state.getOptions()
         transit = curr_state.getTransitions()
         if curr_state == JungleS5:
-            print("The last statge entered here JungleS5")
             if player.get_communication():
                 curr_state =  makeaChoice(option,transit,curr_state)
             else:
                 curr_state = JungleS7
 
-        print("Current state is ", curr_state.deadState)
-        print("Current state is ", curr_state.finalState)
         if curr_state.finalState:
-            print("This is final state")
             print(curr_state.getScene())
             userchoice = input('Would you like to start over at the Island? A - Yes , B - No ')
             print()
@@ -159,7 +155,6 @@ def JungeScene(player):
 
 
         if transit:
-            print("has transitions")
             print(curr_state.getScene())
             print()
 
@@ -173,11 +168,9 @@ def JungeScene(player):
                 print()
                 for options, states in transit.items():
                     if options == 'E':
-                        print("This is epsilon transition")
                         curr_state = states
                 
         else:
-            print("There is no transition")
             for options, states in transit.items():
                  if options == 'E':
                     curr_state = states
