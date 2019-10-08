@@ -1,3 +1,4 @@
+# encoding=utf8
 class State2:
   def __init__(self, scene='', optns = {}, final=False, dead=False):
     self.scene = scene          # this explains the situation
@@ -132,7 +133,6 @@ def JungeScene(player):
         if curr_state.finalState:
             print(curr_state.getScene())
             userchoice = input('Would you like to start over at the Island? A - Yes , B - No ')
-            print()
             userchoice = str(userchoice.upper())
             if userchoice == 'A':
                 curr_state = JungleS0

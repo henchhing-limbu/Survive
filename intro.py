@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# encoding=utf8
 from State import *
 introState0 = State()
 introState1 = State()
